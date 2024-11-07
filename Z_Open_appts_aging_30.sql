@@ -34,4 +34,4 @@ WHERE
 	Status_of_Call = 'OPEN'			-- Select only open calls
 	AND (GETDATE() - a.Task_Date ) > 30        -- Select only appointments aged by 30 or more days
 
-ORDER BY a.Task_Date DESC --c.Service_Call_ID, a.Appointment
+ORDER BY a.Task_Date DESC, c.Service_Call_ID, a.Appointment
