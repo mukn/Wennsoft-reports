@@ -14,7 +14,10 @@ SELECT
 	,TRIM(c.Resolution_Description) AS Resolution_Description
 	,c.Date_of_Service_Call AS WO_Date
 	,a.Task_Date AS Date_Appt
-	,a.Completion_Date AS Date_Complete_Appt
+	,CASE
+		WHEN YEAR(a.Completion_Date) = 1900 THEN NULL
+		ELSE a.Completion_Date
+	END AS Date_Complete_Appt
 	,c.Completion_Date AS Date_Complete_WO
 	,c.DATE1 AS WO_Created_Date
 	,TRIM(c.Contract_Number) AS Contract_Number
